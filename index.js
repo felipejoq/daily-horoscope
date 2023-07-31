@@ -14,6 +14,6 @@ app.use('/', require('./routes/horoscopo'));
 
 app.listen(port, async () => {
     console.log(`Este servicio está en http://localhost:${port}`)
-    job.start();
+    job();
     await saveData();
 });

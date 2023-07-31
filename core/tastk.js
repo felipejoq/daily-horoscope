@@ -1,12 +1,11 @@
-const CronJob = require('cron').CronJob;
+const cron = require('node-cron');
 const {saveData} = require('./buildData.js');
 
-const job = new CronJob(
-    '1 0 * * * *',
-    saveData,
-    null,
-    false,
-    'America/Santiago'
-);
+const job = async () => {
+    cron.schedule('0 0 * * * *', () => {
+        saveData();
+        console.log('Data generate from cron-job');
+    });
+}
 
 module.exports = job;
