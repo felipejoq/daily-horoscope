@@ -4,7 +4,8 @@
   "description": "A small project that create a service to return daily horoscope",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --ignore ./data index.js"
+    "dev": "nodemon --ignore ./data index.js",
+    "start": "npm install && node index.js"
   },
   "author": "Felipe Jofré Quevedo",
   "license": "ISC",
