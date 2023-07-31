@@ -4,7 +4,7 @@ Este es un pequeño servicio que devuelve un json con el horóscopo
 diario que se obtiene de [este sitio web](https://www.hola.com/) mediante el uso de técnicas
 de scraping con la única finalidad de investigación y aprendizaje.
 
-👉 [Live Demo](https://api-horoscope.uncodigo.com/) 👈
+👉 [Live Demo](https://daily-horoscope-k3ip.onrender.com) 👈
 
 | Ruta    | Método | Descripción                                                            |
 |---------|--------|------------------------------------------------------------------------|
