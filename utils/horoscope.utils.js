@@ -4,7 +4,10 @@ const getHoroscope = () => {
     if (checkDataExist()) {
         return require('../data/horoscope.json');
     } else {
-        return {};
+        return {
+            ok: false,
+            message: 'El servicio está obteniendo y creando los datos, por favor espere un momento y refresque la página.'
+        };
     }
 }
 
