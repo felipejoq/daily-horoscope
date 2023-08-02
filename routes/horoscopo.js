@@ -14,8 +14,7 @@ router.get('/:signo', async (req, res) => {
     const isValidSigno = signos.includes(signo);
 
     if (isValidSigno) {
-        const horoscope = getHoroscopeBySigno(signo)
-        res.json(horoscope)
+        res.json(getHoroscopeBySigno(signo))
     } else {
         res.json({
             ok: false,
