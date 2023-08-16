@@ -1,11 +1,11 @@
-const fs = require('node:fs');
-const {getAllHoroscope} = require('./horoscope');
+import fs from 'node:fs';
+import { getAllHoroscope } from './horoscope.js';
 
-const checkDataExist = () => {
+export const checkDataExist = async () => {
     return fs.existsSync("./data/horoscope.json");
 }
 
-const saveData = async () => {
+export const saveData = async () => {
     const horoscope = await getAllHoroscope();
     fs.writeFile(
         './data/horoscope.json',
@@ -17,9 +17,3 @@ const saveData = async () => {
     );
     console.log('Data was created')
 }
-
-module.exports = {
-    saveData,
-    checkDataExist
-};
-

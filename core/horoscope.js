@@ -1,10 +1,10 @@
-const cheerio = require('cheerio');
-const {getData} = require('./getData.js');
-const signos = require('./signosList');
+import * as cheerio from 'cheerio';
+import { getData } from './getData.js';
+import signos from './signosList.js';
 
 const url = 'https://www.hola.com/horoscopo/';
 
-const getAllHoroscope = async () => {
+export const getAllHoroscope = async () => {
     const horoscope = [];
     for (const signo of signos) {
         const item = await getHoroscopeBySigno(signo);
@@ -13,9 +13,9 @@ const getAllHoroscope = async () => {
     return horoscope;
 }
 
-const getHoroscopeBySigno = async (signo) => {
+export const getHoroscopeBySigno = async (signo) => {
     const data = await getData(`${url}${signo}`);
-    const $ = await cheerio.load(data);
+    const $ = cheerio.load(data);
     const sig = $("#titprev").find("span").text();
     const date = $("#resultados").find("strong").text();
     const paragraph = $("#resultados").find("p").text();
@@ -26,9 +26,4 @@ const getHoroscopeBySigno = async (signo) => {
         date: date,
         horoscope: paragraph
     }
-}
-
-module.exports = {
-    getHoroscopeBySigno,
-    getAllHoroscope
 }

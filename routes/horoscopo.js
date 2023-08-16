@@ -1,26 +1,26 @@
-const express = require('express')
-const router = express.Router()
-const signos = require('../core/signosList');
+import express from 'express';
+import signos from '../core/signosList.js'
+import { Horoscope } from '../models/Horoscope.js';
 
-const {getHoroscope, getHoroscopeBySigno} = require("../utils/horoscope.utils");
+const horoscopeRoutes = express.Router()
 
-router.get('/', (req, res) => {
-    res.json(getHoroscope());
+horoscopeRoutes.get('/', async (req, res) => {
+    res.json(await Horoscope.getAll());
 });
 
-router.get('/:signo', async (req, res) => {
+horoscopeRoutes.get('/:signo', async (req, res) => {
 
     const {signo} = req.params;
     const isValidSigno = signos.includes(signo);
 
     if (isValidSigno) {
-        res.json(getHoroscopeBySigno(signo))
+        res.json(await Horoscope.getBySigno(signo))
     } else {
-        res.json({
+        res.status(404).json({
             ok: false,
             error: 'El signo no existe'
         })
     }
 });
 
-module.exports = router;
+export default horoscopeRoutes;

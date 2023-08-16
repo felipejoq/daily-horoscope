@@ -1,7 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const job = require('./core/tastk')
-const {saveData} = require("./core/buildData");
+import express from 'express';
+import cors from 'cors';
+import job from './core/tastk.js';
+import { saveData } from "./core/buildData.js";
+import horoscopeRoutes from './routes/horoscopo.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -10,7 +11,7 @@ app.use(cors({
     method: 'GET'
 }))
 
-app.use('/', require('./routes/horoscopo'));
+app.use('/', horoscopeRoutes);
 
 app.listen(port, async () => {
     console.log(`Este servicio está en http://localhost:${port}`)
