@@ -5,6 +5,8 @@ diario que se obtiene de [este sitio web](https://www.hola.com/) mediante el uso
 de scraping con la única finalidad de investigación y aprendizaje.
 
 👉 [Live Demo](https://daily-horoscope-k3ip.onrender.com) 👈
+(demora en la primera carga porque está alojado en un servicio gratuito que hace "dormir" la App cuando no se usa)
+
 
 | Ruta    | Método | Descripción                                                            |
 |---------|--------|------------------------------------------------------------------------|
